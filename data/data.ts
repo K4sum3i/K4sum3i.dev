@@ -1,3 +1,34 @@
+type Project = {
+    id: number,
+    title: string,
+    description: string,
+    image: string,
+    tags: string[],
+    link: string,
+    website: string,
+}
+
+export const projects: Project[] = [
+  {
+      id: 1,
+      title: "Itinerum",
+      description: "Itinerum helps you discover Málaga’s sights and create custom itineraries with saved routes.",
+      image: "/itinerum.webp",
+      tags: ["JS", "Tailwind", "PHP", "MySQL"],
+      link: "itinerum",
+      website: ""
+  },
+  {
+      id: 2,
+      title: "VoxHire",
+      description: "AI platform for voice-based technical practice and subscription management.",
+      image: "/voxhire.webp",
+      tags: ["Nextjs", "Tailwind", "Clerk", "Stripe", "Prisma", "Supabase"],
+      link: "voxhire",
+      website: ""
+  },
+];
+
 export const skills = [
     { name: "React / Next.js", category: "Frontend" },
     { name: "TypeScript", category: "Language" },
