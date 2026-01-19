@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import NavigationIsland from "@/components/shared/NavigationIsland";
+import {NavigationIsland} from "@/components/shared";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 

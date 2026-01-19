@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Mail, Github, Twitter, Instagram } from "lucide-react";
-import { useEffect, useRef, useState, useCallback, useMemo } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -49,7 +49,7 @@ function Loader() {
   );
 }
 
-export default function NavigationIsland() {
+export function NavigationIsland() {
   const pathname = usePathname();
   const linkRefs = useRef<(HTMLElement | null)[]>([]);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
