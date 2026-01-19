@@ -22,9 +22,8 @@ export function AboutSection() {
     <section ref={sectionRef} className="relative px-6 py-32 md:px-12 lg:px-20">
       <div className="mx-auto max-w-6xl">
         <div
-          className={`mb-20 transition-all duration-700 ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-          }`}
+          className={`mb-20 transition-all duration-700 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+            }`}
         >
           <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-tight text-white">
             Passionate Developer Focused on
@@ -36,11 +35,10 @@ export function AboutSection() {
         </div>
         <div className="grid gap-16 lg:grid-cols-2 lg:gap-20">
           <div
-            className={`transition-all delay-200 duration-700 ${
-              isVisible
+            className={`transition-all delay-200 duration-700 ${isVisible
                 ? "translate-y-0 opacity-100"
                 : "translate-y-8 opacity-0"
-            }`}
+              }`}
           >
             <div className="space-y-6 text-lg leading-relaxed text-white/70">
               <p>
@@ -81,11 +79,10 @@ export function AboutSection() {
 
           <div className="space-y-12">
             <div
-              className={`transition-all delay-300 duration-700 ${
-                isVisible
+              className={`transition-all delay-300 duration-700 ${isVisible
                   ? "translate-y-0 opacity-100"
                   : "translate-y-8 opacity-0"
-              }`}
+                }`}
             >
               <h3 className="mb-6 text-sm tracking-widest text-white/40">
                 TECH STACK
@@ -103,11 +100,10 @@ export function AboutSection() {
             </div>
 
             <div
-              className={`transition-all delay-400 duration-700 ${
-                isVisible
+              className={`transition-all delay-400 duration-700 ${isVisible
                   ? "translate-y-0 opacity-100"
                   : "translate-y-8 opacity-0"
-              }`}
+                }`}
             >
               <h3 className="mb-6 text-sm tracking-widest text-white/40">
                 EDUCATION

@@ -26,9 +26,8 @@ export function ProjectsSection() {
     <section ref={sectionRef} className="relative px-6 py-32 md:px-12 lg:px-20">
       <div className="mx-auto max-w-6xl">
         <div
-          className={`mb-20 transition-all duration-700 ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-          }`}
+          className={`mb-20 transition-all duration-700 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+            }`}
         >
           <div className="flex flex-wrap items-end justify-between gap-6">
             <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-tight text-white">
@@ -48,7 +47,7 @@ export function ProjectsSection() {
 
         <div className="grid gap-6 md:grid-cols-2">
           {projects.map((project) => (
-            <Link key={project.id} href={project.link}>
+            <Link key={project.id} href={`/projects/${project.slug}`}>
               <MagicCard className="group flex flex-col justify-between h-full rounded-lg bg-[rgb(25,25,25)] p-8 transition-all duration-300 hover:border-white/10">
                 <div className="relative z-10 flex h-full flex-col justify-between">
                   <div>

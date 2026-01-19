@@ -1,32 +1,41 @@
 type Project = {
     id: number,
+    slug: string,
     title: string,
     description: string,
-    image: string,
+    /*     longDescription: string, */
     tags: string[],
-    link: string,
-    website: string,
+    /*     year: string,
+        link: {
+            live?: string,
+            github: string,
+        }
+        features: string[];
+        techStack: {
+            category: string;
+            items: string[];
+        }[];
+        images: {
+            thumbnail: string;
+            gallery: string[];
+        }; */
 }
 
 export const projects: Project[] = [
-  {
-      id: 1,
-      title: "Itinerum",
-      description: "Itinerum helps you discover Málaga’s sights and create custom itineraries with saved routes.",
-      image: "/itinerum.webp",
-      tags: ["JS", "Tailwind", "PHP", "MySQL"],
-      link: "itinerum",
-      website: ""
-  },
-  {
-      id: 2,
-      title: "VoxHire",
-      description: "AI platform for voice-based technical practice and subscription management.",
-      image: "/voxhire.webp",
-      tags: ["Nextjs", "Tailwind", "Clerk", "Stripe", "Prisma", "Supabase"],
-      link: "voxhire",
-      website: ""
-  },
+    {
+        id: 1,
+        slug: "itinerum",
+        title: "Itinerum",
+        description: "Itinerum helps you discover Málaga’s sights and create custom itineraries with saved routes.",
+        tags: ["JS", "Tailwind", "PHP", "MySQL"],
+    },
+    {
+        id: 2,
+        slug: "voxhire",
+        title: "VoxHire",
+        description: "AI platform for voice-based technical practice and subscription management.",
+        tags: ["Nextjs", "Tailwind", "Clerk", "Stripe", "Prisma", "Supabase"],
+    },
 ];
 
 export const skills = [
