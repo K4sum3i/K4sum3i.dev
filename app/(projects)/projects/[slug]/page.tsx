@@ -111,7 +111,7 @@ export default async function page({ params }: ProjectPageProps) {
                   key={index}
                   className="flex items-start gap-4 rounded-lg border border-white/5 bg-[rgb(25,25,25)] p-4 transition-colors hover:border-white/10"
                 >
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-[rgb(63,138,226)]/10 text-xs font-medium text-[rgb(63,138,226)]">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-[rgb(198,195,242)]/10 text-xs font-medium text-[rgb(198,195,242)]">
                     {index + 1}
                   </span>
                   <span className="text-white/70">{feature}</span>

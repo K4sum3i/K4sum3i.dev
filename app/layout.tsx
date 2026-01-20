@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import {NavigationIsland} from "@/components/shared";
+import { NavigationIsland, MobileNavigation } from "@/components/shared";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -29,7 +29,13 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
-        <NavigationIsland />
+        <div className="hidden md:block">
+          <NavigationIsland />
+        </div>
+
+        <div className="block md:hidden">
+          <MobileNavigation />
+        </div>
       </body>
     </html>
   );

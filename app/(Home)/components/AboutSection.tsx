@@ -121,7 +121,7 @@ export function AboutSection() {
                     <div className="mb-2 flex items-start justify-between gap-4">
                       <div>
                         <h4 className="font-medium text-white">{edu.title}</h4>
-                        <p className="text-sm text-[rgb(63,138,226)]">
+                        <p className="text-sm text-[rgb(198,195,242)]">
                           {edu.institution}
                         </p>
                       </div>
