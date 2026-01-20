@@ -54,7 +54,7 @@ export function HeroSection() {
             href="#"
             className="group inline-flex items-center gap-3 rounded-full bg-white px-6 py-3 font-medium text-[rgb(20,20,20)] transition-all duration-300 hover:bg-white/90 hover:shadow-lg hover:shadow-white/10"
           >
-            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-x-1 group-hover:translate-x-1" />
+            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             Contactar
           </Link>
 
@@ -62,7 +62,7 @@ export function HeroSection() {
             href="#"
             className="group inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 font-medium text-white transition-all duration-300 hover:border-white/40 hover:bg-white/5"
           >
-            <Download className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-y-0.5 " />
+            <Download className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-1" />
             Descargar CV
           </Link>
         </div>

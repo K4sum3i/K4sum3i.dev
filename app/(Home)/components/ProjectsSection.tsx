@@ -26,8 +26,9 @@ export function ProjectsSection() {
     <section ref={sectionRef} className="relative px-6 py-32 md:px-12 lg:px-20">
       <div className="mx-auto max-w-6xl">
         <div
-          className={`mb-20 transition-all duration-700 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-            }`}
+          className={`mb-20 transition-all duration-700 ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+          }`}
         >
           <div className="flex flex-wrap items-end justify-between gap-6">
             <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-tight text-white">
@@ -53,7 +54,7 @@ export function ProjectsSection() {
                   <div>
                     <div className="flex justify-between">
                       <h3 className="mb-3 text-2xl font-bold text-white">
-                        <FolderCode className="inline-block mr-2 mb-1 text-white/15 transition-all duration-300 group-hover:text-white/80 group-hover:-translate-x-1 group-hover:translate-x-1" />
+                        <FolderCode className="inline-block mr-2 mb-1 text-white/15 transition-all duration-300 group-hover:text-white/80 group-hover:translate-x-1" />
                         {project.title}
                       </h3>
                       <ArrowRight className="h-4 w-4 text-white/15 group-hover:text-white/80 transition-all duration-300" />
