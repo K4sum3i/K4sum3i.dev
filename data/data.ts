@@ -3,22 +3,23 @@ type Project = {
     slug: string,
     title: string,
     description: string,
-    /*     longDescription: string, */
+    longDescription: string,
     tags: string[],
-    /*     year: string,
-        link: {
-            live?: string,
-            github: string,
-        }
-        features: string[];
-        techStack: {
-            category: string;
-            items: string[];
-        }[];
-        images: {
-            thumbnail: string;
-            gallery: string[];
-        }; */
+    year: string,
+    role: string,
+    links: {
+        live?: string,
+        github: string,
+    }
+    features: string[];
+    techStack: {
+        category: string;
+        items: string[];
+    }[];
+    images: {
+        thumbnail: string;
+        gallery: string[];
+    };
 }
 
 export const projects: Project[] = [
@@ -27,14 +28,55 @@ export const projects: Project[] = [
         slug: "itinerum",
         title: "Itinerum",
         description: "Itinerum helps you discover Málaga’s sights and create custom itineraries with saved routes.",
+        longDescription: "",
         tags: ["JS", "Tailwind", "PHP", "MySQL"],
+        year: "",
+        role: "",
+        links: {
+            live: "",
+            github: "",
+        },
+        features: [],
+        techStack: [{
+            category: "",
+            items: []
+        }],
+        images: {
+            thumbnail: "",
+            gallery: [
+                "",
+                "",
+                "",
+            ],
+        },
     },
+
     {
         id: 2,
         slug: "voxhire",
         title: "VoxHire",
         description: "AI platform for voice-based technical practice and subscription management.",
+        longDescription: "",
         tags: ["Nextjs", "Tailwind", "Clerk", "Stripe", "Prisma", "Supabase"],
+        year: "",
+        role: "",
+        links: {
+            live: "",
+            github: "",
+        },
+        features: [""],
+        techStack: [{
+            category: "",
+            items: []
+        }],
+        images: {
+            thumbnail: "",
+            gallery: [
+                "",
+                "",
+                "",
+            ],
+        },
     },
 ];
 

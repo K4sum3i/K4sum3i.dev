@@ -53,7 +53,7 @@ export function ProjectsSection() {
                   <div>
                     <div className="flex justify-between">
                       <h3 className="mb-3 text-2xl font-bold text-white">
-                        <FolderCode className="inline-block mr-2 mb-1 text-white/15 transition-all duration-300 group-hover:text-white/80 group-hover:-translate-x-0.5 group-hover:translate-x-0.5" />
+                        <FolderCode className="inline-block mr-2 mb-1 text-white/15 transition-all duration-300 group-hover:text-white/80 group-hover:-translate-x-1 group-hover:translate-x-1" />
                         {project.title}
                       </h3>
                       <ArrowRight className="h-4 w-4 text-white/15 group-hover:text-white/80 transition-all duration-300" />

@@ -1,6 +1,9 @@
 "use client"
+import { Footer } from "@/components/shared";
+import { MagicCard } from "@/components/ui/magic-card";
 import { projects } from "@/data/data";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight, FolderCode } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -55,6 +58,42 @@ export default function page() {
                     </button>
                 ))}
             </div>
+            <div className="grid gap-6 md:grid-cols-2">
+                {filteredProjects.map((project) => (
+                    <Link key={project.id} href={`/projects/${project.slug}`}>
+                        <MagicCard className="group flex flex-col justify-between h-full rounded-lg bg-[rgb(25,25,25)] p-8 transition-all duration-300 hover:border-white/10">
+                            <div className="relative z-10 flex h-full flex-col justify-between">
+                                <div>
+                                    <div className="flex justify-between">
+                                        <h3 className="mb-3 text-2xl font-bold text-white">
+                                            <FolderCode className="inline-block mr-2 mb-1 text-white/15 transition-all duration-300 group-hover:text-white/80 group-hover:-translate-x-1 group-hover:translate-x-1" />
+                                            {project.title}
+                                        </h3>
+                                        <ArrowRight className="h-4 w-4 text-white/15 group-hover:text-white/80 transition-all duration-300" />
+                                    </div>
+                                    <div className="mb-3">
+                                        <Image src={project.images?.thumbnail || "/itinerum.webp"} width={400} height={250} alt={project.title} className="w-full h-48 object-cover" />
+                                    </div>
+                                    <p className="max-w-md text-white/50">
+                                        {project.description}
+                                    </p>
+                                </div>
+                                <div className="mt-4 flex flex-wrap gap-2">
+                                    {project.tags.map((tag) => (
+                                        <span
+                                            key={tag}
+                                            className="rounded-md bg-white/5 px-3 py-1 text-xs text-white/50"
+                                        >
+                                            {tag}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        </MagicCard>
+                    </Link>
+                ))}
+            </div>
+            <Footer />
         </div>
     </main>;
 }
