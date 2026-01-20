@@ -51,12 +51,12 @@ export const projects: Project[] = [
       },
       {
         category: "Backend",
-        items: ["PhP", "MySQL"],
+        items: ["PHP", "MySQL"],
       },
     ],
     images: {
-      thumbnail: "",
-      gallery: ["", "", ""],
+      thumbnail: "/itinerum/index.webp",
+      gallery: ["/itinerum/index.webp", "/itinerum/itinerum.webp"],
     },
   },
 
@@ -68,8 +68,8 @@ export const projects: Project[] = [
       "AI platform for voice-based technical practice and subscription management.",
     longDescription: "",
     tags: ["Nextjs", "Tailwind", "Clerk", "Stripe", "Prisma", "Supabase"],
-    year: "",
-    role: "",
+    year: "2025",
+    role: "Desarrollador Full Stack",
     links: {
       live: "",
       github: "",
@@ -82,8 +82,8 @@ export const projects: Project[] = [
       },
     ],
     images: {
-      thumbnail: "",
-      gallery: ["", "", ""],
+      thumbnail: "/voxhire/voxhire.webp",
+      gallery: ["/voxhire/voxhire.webp", "/voxhire/dashboard.webp", "/voxhire/interview.webp"],
     },
   },
 ];

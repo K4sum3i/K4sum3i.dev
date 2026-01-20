@@ -26,9 +26,8 @@ export function ProjectsSection() {
     <section ref={sectionRef} className="relative px-6 py-32 md:px-12 lg:px-20">
       <div className="mx-auto max-w-6xl">
         <div
-          className={`mb-20 transition-all duration-700 ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-          }`}
+          className={`mb-20 transition-all duration-700 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+            }`}
         >
           <div className="flex flex-wrap items-end justify-between gap-6">
             <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-tight text-white">
@@ -37,11 +36,11 @@ export function ProjectsSection() {
               <span className="text-white/50">Projects</span>
             </h2>
             <Link
-              href="#"
-              className="inline-flex items-center gap-2 py-2.5 px-5 rounded-lg text-sm border border-white/5 bg-[rgb(25,25,25)] text-white/80 transition duration-300 hover:border-white/10 hover:text-white"
+              href="/projects"
+              className="group inline-flex items-center gap-2 py-2.5 px-5 rounded-lg text-sm border border-white/5 bg-[rgb(25,25,25)] text-white/80 transition duration-300 hover:border-white/10 hover:text-white"
             >
               View all projects
-              <ArrowUpRight className="h-4 w-4" />
+              <ArrowUpRight className="h-4 w-4 text-white/15 transition duration-300 group-hover:text-white/80" />
             </Link>
           </div>
         </div>

@@ -89,11 +89,14 @@ export default async function page({ params }: ProjectPageProps) {
           <div className="relative aspect-video overflow-hidden rounded-2xl border border-white/5">
             <div className="absolute inset-0 flex items-center justify-center">
               <Image
-                src={project.images.thumbnail || "/itinerum.webp"}
+                src={project.images.thumbnail}
                 alt={project.title}
-                fill
-                className="object-fit"
-                sizes="(min-width: 1024px) 1024px, 100vw"
+                width={800}
+                height={400}
+                className="w-full h-full object-fit"
+                quality={100}
+                priority
+                sizes="(min-width: 768px) 800px, 100vw"
               />
             </div>
           </div>
@@ -156,23 +159,21 @@ export default async function page({ params }: ProjectPageProps) {
               {project.images.gallery.map((_, index) => (
                 <div
                   key={index}
-                  className={`relative overflow-hidden rounded-xl border border-white/5 ${
-                    index === 0
-                      ? "md:col-span-2 md:aspect-[2/1]"
-                      : "aspect-[4/3]"
-                  }`}
+                  className={`relative overflow-hidden rounded-xl border border-white/5 ${project.images.gallery.length >= 3 && index === 0
+                    ? "md:col-span-2 md:aspect-[2/1]"
+                    : "aspect-[4/3]"
+                    }`}
                 >
                   <div className="absolute inset-0 flex items-center justify-center">
                     <Image
-                      src={project.images.thumbnail || "/itinerum.webp"}
+                      src={_}
                       alt={project.title}
-                      fill
-                      className="object-fit"
-                      sizes={
-                        index === 0
-                          ? "(min-width: 768px) 800px, 100vw"
-                          : "(min-width: 768px) 400px, 100vw"
-                      }
+                      width={800}
+                      height={400}
+                      className="w-full h-full object-fit"
+                      quality={100}
+                      priority
+                      sizes="(min-width: 768px) 800px, 100vw"
                     />
                   </div>
                 </div>
