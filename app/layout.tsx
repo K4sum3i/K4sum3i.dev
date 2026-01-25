@@ -16,7 +16,7 @@ const notoMono = Noto_Sans_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://k4sum3i.dev"),
   title: {
-    default: "K4sum3i — Portfolio",
+    default: "K4sum3i",
     template: "%s — K4sum3i",
   },
   description:
