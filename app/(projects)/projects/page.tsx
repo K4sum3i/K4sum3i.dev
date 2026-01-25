@@ -2,7 +2,13 @@
 import { Footer } from "@/components/shared";
 import { MagicCard } from "@/components/ui/magic-card";
 import { projects } from "@/data/data";
-import { ArrowLeft, ArrowRight, FolderCode } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  FolderCode,
+  Funnel,
+  SlidersHorizontal,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -19,7 +25,6 @@ import { Button } from "@/components/ui/button";
 import { DialogClose } from "@radix-ui/react-dialog";
 
 const allTags = Array.from(new Set(projects.flatMap((p) => p.tags))).sort();
-
 const VISIBLE_TAGS = 3;
 
 export default function page() {
@@ -61,52 +66,43 @@ export default function page() {
           </p>
         </div>
 
-        <div className="mb-12 flex flex-wrap items-center gap-2">
-          <button
-            onClick={() => setActiveFilter(null)}
-            className={`rounded-lg px-4 py-2 text-sm font-medium transition-all duration-300 ${
-              activeFilter === null
-                ? "bg-white/5 text-white"
-                : "text-white/60 hover:bg-white/5 hover:text-white"
-            }`}
-          >
-            All
-          </button>
-
-          {visibleTags.map((tag) => (
-            <button
-              key={tag}
-              onClick={() => setActiveFilter(tag === activeFilter ? null : tag)}
-              className={`rounded-lg px-4 py-2 text-sm font-medium transition-all duration-300 ${
-                activeFilter === tag
-                  ? "bg-white/5 text-white"
-                  : "text-white/60 hover:bg-white/5 hover:text-white"
-              }`}
-            >
-              {tag}
-            </button>
-          ))}
-
-          {extraTags.length > 0 && (
+        <div className="mb-12">
+          {/* MÓVIL: Botón único que abre todos los filtros */}
+          <div className="md:hidden">
             <Dialog>
               <DialogTrigger asChild>
-                <Button className="ml-auto rounded-lg border-white/10 bg-transparent text-sm text-white/60 transition-all duration-300 hover:bg-white/5 hover:text-white">
-                  More filters
+                <Button className="w-full rounded-lg border-white/10 bg-transparent px-4 py-2 text-sm font-medium text-white/60 transition-all duration-300 hover:bg-white/5 hover:text-white">
+                  <Funnel className="w-4 h-4 text-white/60" />
+                  Filters ({allTags.length})
                 </Button>
               </DialogTrigger>
-              <DialogContent className="border-white/10 bg-[rgb(20,20,20)]">
+              <DialogContent className="border-white/10 bg-[rgb(20,20,20)] max-h-[70vh] overflow-y-auto">
                 <DialogHeader>
-                  <DialogTitle className="text-white">More filters</DialogTitle>
+                  <DialogTitle className="text-white">
+                    <Funnel className="inline-flex mb-1 mr-2 w-4 h-4 text-white" />
+                    Filters
+                  </DialogTitle>
                 </DialogHeader>
 
                 <div className="mt-4 flex flex-wrap gap-2">
-                  {extraTags.map((tag) => (
+                  <button
+                    onClick={() => setActiveFilter(null)}
+                    className={`whitespace-nowrap rounded-lg px-4 py-2 text-sm font-medium transition-all duration-300 ${
+                      activeFilter === null
+                        ? "bg-white/5 text-white"
+                        : "text-white/60 hover:bg-white/5 hover:text-white"
+                    }`}
+                  >
+                    All
+                  </button>
+
+                  {allTags.map((tag) => (
                     <button
                       key={tag}
                       onClick={() =>
                         setActiveFilter(tag === activeFilter ? null : tag)
                       }
-                      className={`rounded-lg px-4 py-2 text-sm font-medium transition-all duration-300 ${
+                      className={`whitespace-nowrap rounded-lg px-4 py-2 text-sm font-medium transition-all duration-300 ${
                         activeFilter === tag
                           ? "bg-white/5 text-white"
                           : "text-white/60 hover:bg-white/5 hover:text-white"
@@ -117,7 +113,7 @@ export default function page() {
                   ))}
                 </div>
 
-                <div className="border border-text-white/5"></div>
+                <div className="border boder-white/5"></div>
 
                 <DialogFooter className="mt-6 flex justify-end gap-2">
                   <DialogClose asChild>
@@ -131,7 +127,88 @@ export default function page() {
                 </DialogFooter>
               </DialogContent>
             </Dialog>
-          )}
+          </div>
+
+          <div className="hidden md:block">
+            <div className="flex items-center gap-2 overflow-x-auto pb-4 scrollbar-hide [-webkit-overflow-scrolling:touch]">
+              <button
+                onClick={() => setActiveFilter(null)}
+                className={`flex-shrink-0 whitespace-nowrap rounded-lg px-4 py-2 text-sm font-medium transition-all duration-300 ${
+                  activeFilter === null
+                    ? "bg-white/5 text-white"
+                    : "text-white/60 hover:bg-white/5 hover:text-white"
+                }`}
+              >
+                All
+              </button>
+
+              {visibleTags.map((tag) => (
+                <button
+                  key={tag}
+                  onClick={() =>
+                    setActiveFilter(tag === activeFilter ? null : tag)
+                  }
+                  className={`flex-shrink-0 whitespace-nowrap rounded-lg px-4 py-2 text-sm font-medium transition-all duration-300 ${
+                    activeFilter === tag
+                      ? "bg-white/5 text-white"
+                      : "text-white/60 hover:bg-white/5 hover:text-white"
+                  }`}
+                >
+                  {tag}
+                </button>
+              ))}
+
+              {extraTags.length > 0 && (
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button className="group ml-auto flex-shrink-0 rounded-lg border-white/10 bg-transparent px-4 py-2 text-sm text-white/60 transition-all duration-300 hover:bg-white/5 hover:text-white">
+                      More filters
+                      <SlidersHorizontal className="w-4 h-4 text-white/60 transition-all duration-300 group-hover:text-white" />
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="border-white/10 bg-[rgb(20,20,20)]">
+                    <DialogHeader>
+                      <DialogTitle className="flex text-white">
+                        <SlidersHorizontal className="inline-flex mr-2 w-5 h-5 text-white" />
+                        More filters
+                      </DialogTitle>
+                    </DialogHeader>
+
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {extraTags.map((tag) => (
+                        <button
+                          key={tag}
+                          onClick={() =>
+                            setActiveFilter(tag === activeFilter ? null : tag)
+                          }
+                          className={`rounded-lg px-4 py-2 text-sm font-medium transition-all duration-300 ${
+                            activeFilter === tag
+                              ? "bg-white/5 text-white"
+                              : "text-white/60 hover:bg-white/5 hover:text-white"
+                          }`}
+                        >
+                          {tag}
+                        </button>
+                      ))}
+                    </div>
+
+                    <div className="border boder-white/5"></div>
+
+                    <DialogFooter className="mt-6 flex justify-end gap-2">
+                      <DialogClose asChild>
+                        <Button
+                          type="button"
+                          className="bg-white text-black hover:bg-white/90"
+                        >
+                          Aceptar
+                        </Button>
+                      </DialogClose>
+                    </DialogFooter>
+                  </DialogContent>
+                </Dialog>
+              )}
+            </div>
+          </div>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2">
@@ -142,7 +219,7 @@ export default function page() {
                   <div>
                     <div className="flex justify-between">
                       <h3 className="mb-3 text-2xl font-bold text-white">
-                        <FolderCode className="mr-2 mb-1 inline-block text-white/15 transition-all duration-300 group-hover:-translate-x-1 group-hover:translate-x-1 group-hover:text-white/80" />
+                        <FolderCode className="mr-2 mb-1 inline-block text-white/15 transition-all duration-300 group-hover:text-white/80" />
                         {project.title}
                       </h3>
                       <ArrowRight className="h-4 w-4 text-white/15 transition-all duration-300 group-hover:text-white/80" />
