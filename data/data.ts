@@ -56,7 +56,7 @@ export const projects: Project[] = [
     ],
     images: {
       thumbnail: "/itinerum/index.webp",
-      gallery: ["/itinerum/index.webp", "/itinerum/itinerum.webp"],
+      gallery: ["/itinerum/index.webp", "/itinerum/Itinerum.webp"],
     },
   },
 
@@ -100,7 +100,7 @@ export const projects: Project[] = [
       gallery: [
         "/voxhire/voxhire.webp",
         "/voxhire/dashboard.webp",
-        "/voxhire/interview.webp",
+        "/voxhire/Interview.webp",
       ],
     },
   },
