@@ -183,7 +183,6 @@ export function NavigationIsland() {
                 key={name}
                 href={href}
                 className="group relative flex items-center justify-center w-[44px] h-[44px] rounded-[15px] border border-[#232323] bg-[#191919] hover:bg-[#1e1e1e] hover:scale-[1.06] transition-all duration-200 ease-[cubic-bezier(0.32,0.72,0,1)] pointer-events-auto z-50 block"
-                target="_blank"
                 rel="noreferrer"
               >
                 <Icon size={20} className="pointer-events-none text-white/30" />

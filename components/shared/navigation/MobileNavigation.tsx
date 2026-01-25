@@ -167,7 +167,6 @@ export function MobileNavigation() {
             <Link
               key={s.name}
               href={s.href}
-              target="_blank"
               rel="noreferrer"
               className="flex items-center justify-center h-12 rounded-xl border border-[#2a2a2a] bg-[#171717] hover:bg-[#1c1c1c] transition"
             >
