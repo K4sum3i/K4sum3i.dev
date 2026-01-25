@@ -1,20 +1,25 @@
-import { ArrowLeft, ArrowRight, ExternalLink, Github } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  ChevronRight,
+  ExternalLink,
+  Github,
+} from "lucide-react";
 import Link from "next/link";
 import { projects, getProjectBySlug } from "@/data/data";
 import Image from "next/image";
-import { features } from "process";
-import { Footer } from "@/components/shared";
+import { Footer, NotFoundPage } from "@/components/shared";
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
 }
 
-export default async function page({ params }: ProjectPageProps) {
+export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
 
   if (!project) {
-    return <div>none</div>;
+    return <NotFoundPage />;
   }
 
   const currentIndex = projects.findIndex((p) => p.slug === slug);
@@ -31,7 +36,7 @@ export default async function page({ params }: ProjectPageProps) {
             className="group flex items-center gap-2 text-sm text-white/60 transition-colors hover:text-white"
           >
             <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
-            Back to home
+            Back to projects
           </Link>
 
           <div className="flex items-center gap-4">
@@ -60,7 +65,7 @@ export default async function page({ params }: ProjectPageProps) {
         <div className="mx-auto max-w-5xl">
           <div className="mb-8 flex flex-wrap items-center gap-4 text-sm text-white/40">
             <span>{project.year}</span>
-            <span className="h-1 w-1 rounded-full bg-white/20" />
+            <ChevronRight className="h-4 w-4 text-white/40" />
             <span>{project.role}</span>
           </div>
 
@@ -91,12 +96,8 @@ export default async function page({ params }: ProjectPageProps) {
               <Image
                 src={project.images.thumbnail}
                 alt={project.title}
-                width={800}
-                height={400}
-                className="w-full h-full object-fit"
-                quality={100}
-                priority
-                sizes="(min-width: 768px) 800px, 100vw"
+                fill
+                className="w-full rounded-lg object-cover"
               />
             </div>
           </div>
@@ -159,21 +160,18 @@ export default async function page({ params }: ProjectPageProps) {
               {project.images.gallery.map((_, index) => (
                 <div
                   key={index}
-                  className={`relative overflow-hidden rounded-xl border border-white/5 ${project.images.gallery.length >= 3 && index === 0
-                    ? "md:col-span-2 md:aspect-[2/1]"
-                    : "aspect-[4/3]"
-                    }`}
+                  className={`relative overflow-hidden rounded-xl border border-white/5 ${
+                    project.images.gallery.length >= 3 && index === 0
+                      ? "md:col-span-2 md:aspect-[2/1]"
+                      : "aspect-[4/3]"
+                  }`}
                 >
                   <div className="absolute inset-0 flex items-center justify-center">
                     <Image
                       src={_}
                       alt={project.title}
-                      width={800}
-                      height={400}
-                      className="w-full h-full object-fit"
-                      quality={100}
-                      priority
-                      sizes="(min-width: 768px) 800px, 100vw"
+                      fill
+                      className="w-full rounded-lg object-cover"
                     />
                   </div>
                 </div>

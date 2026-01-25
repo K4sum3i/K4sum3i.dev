@@ -34,8 +34,8 @@ export const projects: Project[] = [
     year: "2025",
     role: "Desarrollador Full Stack",
     links: {
-      live: "example",
-      github: "example",
+      live: "",
+      github: "https://github.com/K4sum3i/Itinerum",
     },
     features: [
       "Search and retrieve points of interest in Málaga",
@@ -72,18 +72,36 @@ export const projects: Project[] = [
     role: "Desarrollador Full Stack",
     links: {
       live: "",
-      github: "",
+      github: "https://github.com/K4sum3i/VoxHire",
     },
-    features: [""],
+    features: [
+      "Voice AI Interviews: Job interview simulations with an AI-powered voice assistant.",
+      "Secure Authentication: User login and management with Clerk.",
+      "Subscription Plans: Payment and subscription integration with Stripe.",
+      "Personalized Dashboard: User dashboard to track progress and manage subscriptions.",
+      "Deployment on Vercel: App deployed for free on Vercel.",
+    ],
     techStack: [
       {
-        category: "",
-        items: [],
+        category: "Frontend",
+        items: ["Next.js 15", "React", "Tailwind CSS + ShadCN"],
+      },
+      {
+        category: "Backend",
+        items: ["Supabase", "Prisma", "PostgreSQL"],
+      },
+      {
+        category: "Authentication, Payments & AI",
+        items: ["Clerk", "Stripe", "Vapi AI"],
       },
     ],
     images: {
       thumbnail: "/voxhire/voxhire.webp",
-      gallery: ["/voxhire/voxhire.webp", "/voxhire/dashboard.webp", "/voxhire/interview.webp"],
+      gallery: [
+        "/voxhire/voxhire.webp",
+        "/voxhire/dashboard.webp",
+        "/voxhire/interview.webp",
+      ],
     },
   },
 ];

@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# K4sum3i — Portfolio
 
-## Getting Started
+Portfolio personal construido con Next.js (App Router) para mostrar proyectos, stack y experiencia.
 
-First, run the development server:
+- Demo: https://k4sum3i.dev
+- Repositorio: https://github.com/K4sum3i/k4sum3i.dev
+
+## Características
+
+- Página principal con secciones (Hero, About, Projects)
+- Listado de proyectos y detalle por slug (`/projects/[slug]`)
+- Navegación responsive (isla flotante en desktop + menú móvil)
+- UI moderna con Tailwind CSS + componentes estilo shadcn/ui
+- Assets optimizados y servidos desde `/public`
+
+## Instalación y configuración
+
+**Requisitos**
+
+- Node.js 20+ recomendado
+- npm 10+ (o tu gestor preferido)
+
+**Instalación**
+
+```bash
+npm ci
+```
+
+**Desarrollo**
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Uso
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Home: `/`
+- Proyectos: `/projects`
+- Detalle de proyecto: `/projects/<slug>` (slugs definidos en `data/data.ts`)
 
-## Learn More
+Scripts útiles:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+npm run start
+npm run lint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Capturas
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Puedes usar estas imágenes del propio repositorio como preview:
 
-## Deploy on Vercel
+- `public/voxhire/dashboard.webp`
+- `public/itinerum/index.webp`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Ejemplo en Markdown:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```md
+![Voxhire dashboard](./public/voxhire/dashboard.webp)
+```
+
+## Stack tecnológico
+
+- Framework: Next.js
+- UI: React + TypeScript
+- Estilos: Tailwind CSS
+- Componentes: Radix UI + shadcn/ui
+- Animación: Motion
+- Iconos: lucide-react
+
+## Contribuir
+
+Si quieres proponer mejoras:
+
+1. Haz un fork del repositorio
+2. Crea una rama: `git checkout -b feat/mi-mejora`
+3. Haz commit con cambios claros
+4. Abre un Pull Request describiendo el objetivo y el impacto
+
+## Licencia
+
+Este repositorio no incluye un archivo de licencia actualmente. Si planeas abrir el código, añade una licencia (por ejemplo MIT) y actualiza esta sección.
+
+## Contacto
+
+- Email: mailto:manugg24@proton.me
+- LinkedIn: https://www.linkedin.com/in/k4sum3i/
+- GitHub: https://github.com/K4sum3i

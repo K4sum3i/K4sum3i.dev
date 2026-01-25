@@ -26,14 +26,15 @@ export function ProjectsSection() {
     <section ref={sectionRef} className="relative px-6 py-32 md:px-12 lg:px-20">
       <div className="mx-auto max-w-6xl">
         <div
-          className={`mb-20 transition-all duration-700 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-            }`}
+          className={`mb-20 transition-all duration-700 ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+          }`}
         >
           <div className="flex flex-wrap items-end justify-between gap-6">
             <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-tight text-white">
               Selected
               <br />
-              <span className="text-white/50">Projects</span>
+              <span className="text-[rgb(198,195,242)]">Projects</span>
             </h2>
             <Link
               href="/projects"

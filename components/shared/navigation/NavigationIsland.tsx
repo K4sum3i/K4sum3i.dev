@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Mail, Github, Twitter, Instagram } from "lucide-react";
+import { Mail, Github, Linkedin } from "lucide-react";
 import { useEffect, useRef, useState, useMemo } from "react";
 
 const navItems = [
@@ -66,13 +66,12 @@ export function NavigationIsland() {
 
   const socials = useMemo(
     () => [
-      { Icon: Twitter, name: "Twitter", href: "https://twitter.com/K4sum3i" },
-      { Icon: Github, name: "GitHub", href: "https://github.com/K4sum3i" },
       {
-        Icon: Instagram,
-        name: "Instagram",
-        href: "https://instagram.com/K4sum3i",
+        Icon: Linkedin,
+        name: "Linkedin",
+        href: "https://www.linkedin.com/in/k4sum3i/",
       },
+      { Icon: Github, name: "GitHub", href: "https://github.com/K4sum3i" },
     ],
     [],
   );
@@ -180,7 +179,7 @@ export function NavigationIsland() {
             style={{ zIndex: 60, pointerEvents: "auto" }}
           >
             {socials.map(({ Icon, href, name }) => (
-              <a
+              <Link
                 key={name}
                 href={href}
                 className="group relative flex items-center justify-center w-[44px] h-[44px] rounded-[15px] border border-[#232323] bg-[#191919] hover:bg-[#1e1e1e] hover:scale-[1.06] transition-all duration-200 ease-[cubic-bezier(0.32,0.72,0,1)] pointer-events-auto z-50 block"
@@ -188,17 +187,17 @@ export function NavigationIsland() {
                 rel="noreferrer"
               >
                 <Icon size={20} className="pointer-events-none text-white/30" />
-              </a>
+              </Link>
             ))}
 
             <div className="w-[1px] h-[32px] bg-white/20 mx-2" />
 
-            <a
+            <Link
               href="mailto:manugg24@proton.me"
               className="group relative flex items-center justify-center w-[44px] h-[44px] rounded-[15px] border border-[#232323] bg-[#191919] hover:bg-[#1e1e1e] hover:scale-[1.06] transition-all duration-200 ease-[cubic-bezier(0.32,0.72,0,1)] pointer-events-auto z-50 block"
             >
               <Mail size={20} className="pointer-events-none text-white/30" />
-            </a>
+            </Link>
           </div>
 
           <div

@@ -29,7 +29,7 @@ export function AboutSection() {
           <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-tight text-white">
             Passionate Developer Focused on
             <br />
-            <span className="text-white/50">
+            <span className="text-[rgb(198,195,242)]">
               Crafting Exceptional Digital Experiences
             </span>
           </h2>

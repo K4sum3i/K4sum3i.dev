@@ -2,15 +2,7 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import {
-  Home,
-  Pencil,
-  Diamond,
-  Mail,
-  Github,
-  Twitter,
-  Instagram,
-} from "lucide-react";
+import { Home, Pencil, Diamond, Mail, Github, Linkedin } from "lucide-react";
 
 export function MobileNavigation() {
   const [open, setOpen] = useState(false);
@@ -27,12 +19,14 @@ export function MobileNavigation() {
   ];
 
   const socials = [
-    { name: "Twitter", href: "https://twitter.com", icon: Twitter },
-    { name: "GitHub", href: "https://github.com", icon: Github },
-    { name: "Instagram", href: "https://instagram.com", icon: Instagram },
+    {
+      name: "Linkedin",
+      href: "https://www.linkedin.com/in/k4sum3i/",
+      icon: Linkedin,
+    },
+    { name: "GitHub", href: "https://github.com/k4sum3i", icon: Github },
   ];
 
-  // Detectar página actual también en subrutas - BUG FIX
   const currentNav = navItems.find(
     (i) =>
       pathname === i.href || (pathname && pathname.startsWith(i.href + "/")),
@@ -50,7 +44,6 @@ export function MobileNavigation() {
     };
   }, [open]);
 
-  // --- Medir altura de la ventana en cliente ---
   useEffect(() => {
     if (typeof window !== "undefined") {
       setWindowHeight(window.innerHeight);
@@ -102,7 +95,6 @@ export function MobileNavigation() {
         }`}
       />
 
-      {/* Bottom Sheet */}
       <div
         role="dialog"
         aria-hidden={!open}
@@ -117,10 +109,8 @@ export function MobileNavigation() {
           ${open ? "translate-y-0" : "translate-y-full"}
           overflow-y-auto`}
       >
-        {/* Handle */}
         <div className="mx-auto mb-2 h-1 w-10 rounded-full bg-white/30" />
 
-        {/* NAV */}
         <div className="rounded-xl border border-[#2a2a2a] bg-[#121212] p-1.5 text-sm text-white/70 relative">
           {navItems.map((item) => {
             const isActive =
@@ -172,7 +162,7 @@ export function MobileNavigation() {
           })}
         </div>
 
-        <div className="grid grid-cols-3 gap-2.5">
+        <div className="grid grid-cols-2 gap-2.5">
           {socials.map((s) => (
             <Link
               key={s.name}
@@ -186,10 +176,8 @@ export function MobileNavigation() {
           ))}
         </div>
 
-        {/* Separador */}
         <div className="mx-auto h-px w-full bg-white/20" />
 
-        {/* EMAIL */}
         <Link
           href="mailto:manugg24@proton.me"
           className="flex h-12 w-full items-center justify-between rounded-xl border border-[#2a2a2a] bg-[#171717] px-4 hover:bg-[#1c1c1c] transition text-white"
