@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { NavigationIsland, MobileNavigation } from "@/components/shared";
 import { Noto_Sans, Noto_Sans_Mono } from "next/font/google";
@@ -55,6 +56,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${notoSans.variable} ${notoMono.variable} antialiased`}>
         {children}
+        <Analytics />
 
         <div className="hidden md:block">
           <NavigationIsland />
