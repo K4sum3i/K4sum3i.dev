@@ -1,0 +1,53 @@
+{
+  "hero": {
+    "status": "Disponible para proyectos web",
+    "titleLine1": "Hola, soy",
+    "titleName": "K4sum3i",
+    "description": "Desarrollador Web Junior apasionado por crear experiencias digitales claras y funcionales. Actualmente buscando mi primera oportunidad profesional para crecer y perfeccionar mis habilidades.",
+    "contact": "Contactar",
+    "downloadCv": "Descargar CV"
+  },
+  "about": {
+    "titleLine1": "Desarrollador apasionado enfocado en",
+    "titleLine2": "Crear experiencias digitales excepcionales",
+    "paragraph1": "Soy un Desarrollador Web Junior con un fuerte enfoque en construir aplicaciones web centradas en el usuario e impactantes. Con un compromiso constante con el aprendizaje, busco crear soluciones digitales que combinen funcionalidad con experiencias de usuario fluidas.",
+    "paragraph2": "Aunque estoy al inicio de mi trayectoria profesional, he dedicado mucho tiempo a dominar tecnologías web modernas mediante autoaprendizaje y proyectos personales. Esto me ha permitido desarrollar una base sólida en buenas prácticas de la industria y en las habilidades técnicas necesarias para ofrecer soluciones web escalables y de alta calidad.",
+    "statsProjects": "Proyectos grandes",
+    "statsHours": "Horas de código",
+    "statsCommitment": "Compromiso",
+    "techStack": "STACK TÉCNICO",
+    "education": "FORMACIÓN"
+  },
+  "projectsSection": {
+    "titleLine1": "Proyectos",
+    "titleLine2": "Destacados",
+    "viewAll": "Ver todos los proyectos"
+  },
+  "projectsPage": {
+    "backToHome": "Volver al inicio",
+    "title": "Todos los proyectos",
+    "description": "Una colección de proyectos personales donde he explorado distintas tecnologías y conceptos de desarrollo web.",
+    "countSingle": "proyecto",
+    "countPlural": "proyectos",
+    "filters": "Filtros",
+    "all": "Todos",
+    "moreFilters": "Más filtros",
+    "accept": "Aceptar"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados.",
+    "madeBy": "Diseñado y desarrollado por K4sum3i en Córdoba, España — gracias por llegar hasta aquí."
+  },
+  "nav": {
+    "home": "Inicio",
+    "projects": "Proyectos",
+    "post": "Post",
+    "menu": "Menú"
+  },
+  "notFound": {
+    "title": "No encontramos esa página",
+    "description": "La página que estás buscando puede haber sido eliminada, renombrada o estar temporalmente no disponible. Revisa la URL o vuelve al inicio.",
+    "goHome": "Volver al inicio",
+    "contactSupport": "Contactar soporte"
+  }
+}

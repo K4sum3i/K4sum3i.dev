@@ -3,9 +3,17 @@
 import { ArrowRight, Download } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language.startsWith("es") ? "es" : "en";
+
+  const cvHref =
+    lang === "es" ? "/Manuel_Garcia_CV_ES.pdf" : "/Manuel_Garcia_CV_EN.pdf";
+  const cvFileName =
+    lang === "es" ? "Manuel_Garcia_CV_ES.pdf" : "Manuel_Garcia_CV_EN.pdf";
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 100);
@@ -22,7 +30,7 @@ export function HeroSection() {
         >
           <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-[rgb(25,25,25)] px-4 py-2 text-sm text-white/60">
             <span className="h-2 w-2 animate-pulse rounded-full bg-[#22c55e]" />
-            Available for web projects
+            {t("hero.status")}
           </span>
         </div>
 
@@ -31,8 +39,10 @@ export function HeroSection() {
             isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
           }`}
         >
-          <span className="block">Hello, I&apos;m</span>
-          <span className="block text-[rgb(198,195,242)]">K4sum3i</span>
+          <span className="block">{t("hero.titleLine1")}</span>
+          <span className="block text-[rgb(198,195,242)]">
+            {t("hero.titleName")}
+          </span>
         </h1>
 
         <p
@@ -40,9 +50,7 @@ export function HeroSection() {
             isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
           }`}
         >
-          Junior Web Developer passionate about creating clear and functional
-          digital experiences. Currently seeking my first professional
-          opportunity to grow and refine my skills.
+          {t("hero.description")}
         </p>
 
         <div
@@ -55,16 +63,16 @@ export function HeroSection() {
             className="group inline-flex items-center gap-3 rounded-full bg-white px-6 py-3 font-medium text-[rgb(20,20,20)] transition-all duration-300 hover:bg-white/90 hover:shadow-lg hover:shadow-white/10"
           >
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-            Contact
+            {t("hero.contact")}
           </Link>
 
           <Link
-            href="/Manuel_Garcia_CV.pdf"
-            download
+            href={cvHref}
+            download={cvFileName}
             className="group inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 font-medium text-white transition-all duration-300 hover:border-white/40 hover:bg-white/5"
           >
             <Download className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-1" />
-            Download CV
+            {t("hero.downloadCv")}
           </Link>
         </div>
       </div>

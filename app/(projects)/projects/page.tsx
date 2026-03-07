@@ -12,6 +12,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import {
   Dialog,
@@ -29,6 +30,8 @@ const VISIBLE_TAGS = 3;
 
 export default function page() {
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language?.startsWith("es") ? "es" : "en";
 
   const filteredProjects = activeFilter
     ? projects.filter((p) => p.tags.includes(activeFilter))
@@ -46,11 +49,13 @@ export default function page() {
             className="group flex items-center gap-2 text-sm text-white/60 transition-colors hover:text-white"
           >
             <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
-            Back to home
+            {t("projectsPage.backToHome")}
           </Link>
           <span className="text-sm text-white/40">
-            {filteredProjects.length} proyecto
-            {filteredProjects.length !== 1 && "s"}
+            {filteredProjects.length}{" "}
+            {filteredProjects.length === 1
+              ? t("projectsPage.countSingle")
+              : t("projectsPage.countPlural")}
           </span>
         </div>
       </header>
@@ -58,29 +63,27 @@ export default function page() {
       <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 lg:px-20">
         <div className="mb-16">
           <h1 className="mb-6 text-[clamp(2.5rem,6vw,4rem)] font-bold leading-tight text-white">
-            All Projects
+            {t("projectsPage.title")}
           </h1>
           <p className="max-w-xl text-lg text-white/60">
-            A collection of personal projects where I have explored various web
-            development technologies and concepts.
+            {t("projectsPage.description")}
           </p>
         </div>
 
         <div className="mb-12">
-          {/* MÓVIL: Botón único que abre todos los filtros */}
           <div className="md:hidden">
             <Dialog>
               <DialogTrigger asChild>
                 <Button className="w-full rounded-lg border-white/10 bg-transparent px-4 py-2 text-sm font-medium text-white/60 transition-all duration-300 hover:bg-white/5 hover:text-white">
                   <Funnel className="w-4 h-4 text-white/60" />
-                  Filters ({allTags.length})
+                  {t("projectsPage.filters")} ({allTags.length})
                 </Button>
               </DialogTrigger>
               <DialogContent className="border-white/10 bg-[rgb(20,20,20)] max-h-[70vh] overflow-y-auto">
                 <DialogHeader>
                   <DialogTitle className="text-white">
                     <Funnel className="inline-flex mb-1 mr-2 w-4 h-4 text-white" />
-                    Filters
+                    {t("projectsPage.filters")}
                   </DialogTitle>
                 </DialogHeader>
 
@@ -93,7 +96,7 @@ export default function page() {
                         : "text-white/60 hover:bg-white/5 hover:text-white"
                     }`}
                   >
-                    All
+                    {t("projectsPage.all")}
                   </button>
 
                   {allTags.map((tag) => (
@@ -121,7 +124,7 @@ export default function page() {
                       type="button"
                       className="bg-white text-black hover:bg-white/90"
                     >
-                      Aceptar
+                      {t("projectsPage.accept")}
                     </Button>
                   </DialogClose>
                 </DialogFooter>
@@ -139,7 +142,7 @@ export default function page() {
                     : "text-white/60 hover:bg-white/5 hover:text-white"
                 }`}
               >
-                All
+                {t("projectsPage.all")}
               </button>
 
               {visibleTags.map((tag) => (
@@ -162,7 +165,7 @@ export default function page() {
                 <Dialog>
                   <DialogTrigger asChild>
                     <Button className="group ml-auto flex-shrink-0 rounded-lg border-white/10 bg-transparent px-4 py-2 text-sm text-white/60 transition-all duration-300 hover:bg-white/5 hover:text-white">
-                      More filters
+                      {t("projectsPage.moreFilters")}
                       <SlidersHorizontal className="w-4 h-4 text-white/60 transition-all duration-300 group-hover:text-white" />
                     </Button>
                   </DialogTrigger>
@@ -170,7 +173,7 @@ export default function page() {
                     <DialogHeader>
                       <DialogTitle className="flex text-white">
                         <SlidersHorizontal className="inline-flex mr-2 w-5 h-5 text-white" />
-                        More filters
+                        {t("projectsPage.moreFilters")}
                       </DialogTitle>
                     </DialogHeader>
 
@@ -200,7 +203,7 @@ export default function page() {
                           type="button"
                           className="bg-white text-black hover:bg-white/90"
                         >
-                          Aceptar
+                          {t("projectsPage.accept")}
                         </Button>
                       </DialogClose>
                     </DialogFooter>
@@ -236,7 +239,7 @@ export default function page() {
                       </div>
                     </div>
                     <p className="max-w-md text-white/50">
-                      {project.description}
+                      {project.description[lang]}
                     </p>
                   </div>
                   <div className="mt-4 flex flex-wrap gap-2">

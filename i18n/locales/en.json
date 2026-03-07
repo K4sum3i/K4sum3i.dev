@@ -1,0 +1,53 @@
+{
+  "hero": {
+    "status": "Available for web projects",
+    "titleLine1": "Hello, I'm",
+    "titleName": "K4sum3i",
+    "description": "Junior Web Developer passionate about creating clear and functional digital experiences. Currently seeking my first professional opportunity to grow and refine my skills.",
+    "contact": "Contact",
+    "downloadCv": "Download CV"
+  },
+  "about": {
+    "titleLine1": "Passionate Developer Focused on",
+    "titleLine2": "Crafting Exceptional Digital Experiences",
+    "paragraph1": "I am a Junior Web Developer with a strong focus on building impactful, user-centered web applications. With a commitment to continuous growth, I strive to create digital solutions that blend functionality with seamless user experiences.",
+    "paragraph2": "Although I am early in my professional journey, I have dedicated significant time to mastering modern web technologies through self-directed learning and personal projects. This has allowed me to develop a solid understanding of industry best practices, as well as the technical skills required to deliver high-quality, scalable web solutions.",
+    "statsProjects": "Big Projects",
+    "statsHours": "Hours of Coding",
+    "statsCommitment": "Commitment",
+    "techStack": "TECH STACK",
+    "education": "EDUCATION"
+  },
+  "projectsSection": {
+    "titleLine1": "Selected",
+    "titleLine2": "Projects",
+    "viewAll": "View all projects"
+  },
+  "projectsPage": {
+    "backToHome": "Back to home",
+    "title": "All projects",
+    "description": "A collection of personal projects where I have explored various web development technologies and concepts.",
+    "countSingle": "project",
+    "countPlural": "projects",
+    "filters": "Filters",
+    "all": "All",
+    "moreFilters": "More filters",
+    "accept": "Accept"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "madeBy": "Designed and coded by K4sum3i in Córdoba, Spain — thanks for scrolling."
+  },
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "post": "Post",
+    "menu": "Menu"
+  },
+  "notFound": {
+    "title": "We can't find that page",
+    "description": "The page you are looking for might have been removed, renamed, or is temporarily unavailable. Check the URL or return home.",
+    "goHome": "Go Home",
+    "contactSupport": "Contact Support"
+  }
+}

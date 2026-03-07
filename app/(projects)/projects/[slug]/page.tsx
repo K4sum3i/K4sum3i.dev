@@ -8,14 +8,69 @@ import {
 import Link from "next/link";
 import { projects, getProjectBySlug } from "@/data/data";
 import Image from "next/image";
+import { headers } from "next/headers";
+import type { Metadata } from "next";
 import { Footer, NotFoundPage } from "@/components/shared";
+
+type Lang = "en" | "es";
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
 }
 
+async function getLangFromHeaders(): Promise<Lang> {
+  const headerStore = await headers();
+  const headerValue = headerStore.get("accept-language") || "";
+  const locale = headerValue.split(",")[0]?.toLowerCase() || "";
+  return locale.startsWith("es") ? "es" : "en";
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const project = getProjectBySlug(params.slug);
+
+  if (!project) {
+    return {
+      title: "Proyecto no encontrado — K4sum3i",
+      description: "El proyecto que intentas ver no existe en el portfolio.",
+    };
+  }
+
+  const lang = await getLangFromHeaders();
+  const description = project.description[lang];
+  const url = `/projects/${project.slug}`;
+
+  return {
+    title: `${project.title} — K4sum3i`,
+    description,
+    openGraph: {
+      title: `${project.title} — Proyecto de K4sum3i`,
+      description,
+      type: "article",
+      url,
+      images: project.images.thumbnail
+        ? [
+            {
+              url: project.images.thumbnail,
+              alt: project.title,
+            },
+          ]
+        : undefined,
+    },
+    alternates: {
+      canonical: url,
+    },
+  };
+}
+
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = await params;
+
+  const lang = await getLangFromHeaders();
+
   const project = getProjectBySlug(slug);
 
   if (!project) {
@@ -36,7 +91,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             className="group flex items-center gap-2 text-sm text-white/60 transition-colors hover:text-white"
           >
             <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
-            Back to projects
+            {lang === "es" ? "Volver a proyectos" : "Back to projects"}
           </Link>
 
           <div className="flex items-center gap-4">
@@ -46,7 +101,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 className="flex items-center gap-2 text-sm text-white/60 transition-colors duration-300 hover:text-white"
               >
                 <Github className="h-4 w-4" />
-                <span className="hidden sm:inline">Code</span>
+                <span className="hidden sm:inline">
+                  {lang === "es" ? "Código" : "Code"}
+                </span>
               </Link>
             )}
             {project.links.live && (
@@ -54,7 +111,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 href={project.links.live}
                 className="flex items-center gap-2 rounded-lg border border-white/5 bg-[rgb(25,25,25)] px-4 py-2 text-sm font-medium text-white/80 transition-all duration-300 hover:border-white/10 hover:text-white"
               >
-                <span>Preview</span>
+                <span>{lang === "es" ? "Ver proyecto" : "Preview"}</span>
                 <ExternalLink className="h-3 w-3" />
               </Link>
             )}
@@ -66,7 +123,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <div className="mb-8 flex flex-wrap items-center gap-4 text-sm text-white/40">
             <span>{project.year}</span>
             <ChevronRight className="h-4 w-4 text-white/40" />
-            <span>{project.role}</span>
+            <span>{project.role[lang]}</span>
           </div>
 
           <h1 className="mb-6 text-[clamp(2.5rem,7vw,5rem)] font-bold leading-[1.1] text-white">
@@ -74,7 +131,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </h1>
 
           <p className="mb-10 max-w-3xl text-xl leading-relaxed text-white/60">
-            {project.description}
+            {project.description[lang]}
           </p>
 
           <div className="flex flex-wrap gap-2">
@@ -107,7 +164,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <div className="mx-auto grid max-w-6xl gap-16 lg:grid-cols-2">
           <div>
             <h2 className="mb-8 text-sm tracking-widest text-white/40">
-              FEATURES
+              {lang === "es" ? "FUNCIONALIDADES" : "FEATURES"}
             </h2>
             <ul className="space-y-4">
               {project.features.map((feature, index) => (
@@ -118,7 +175,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-[rgb(198,195,242)]/10 text-xs font-medium text-[rgb(198,195,242)]">
                     {index + 1}
                   </span>
-                  <span className="text-white/70">{feature}</span>
+                  <span className="text-white/70">{feature[lang]}</span>
                 </li>
               ))}
             </ul>
@@ -126,7 +183,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
           <div>
             <h2 className="mb-8 text-sm tracking-widest text-white/40">
-              TECH STACK
+              {lang === "es" ? "STACK TÉCNICO" : "TECH STACK"}
             </h2>
             <div className="space-y-8">
               {project.techStack.map((stack) => (
@@ -154,7 +211,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <section className="border-t border-white/5 px-6 py-20 md:px-12 lg:px-20">
           <div className="mx-auto max-w-6xl">
             <h2 className="mb-12 text-sm tracking-widest text-white/40">
-              GALLERY
+              {lang === "es" ? "GALERÍA" : "GALLERY"}
             </h2>
             <div className="grid gap-6 md:grid-cols-2">
               {project.images.gallery.map((_, index) => (
@@ -190,7 +247,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <span className="mb-2 block text-sm text-white/40">
                 <div className="inline-flex">
                   <ArrowLeft className="mt-1 mr-2 w-3.5 h-3.5 transition-transform duration-300 group-hover:-translate-x-1" />
-                  Previous Project
+                  {lang === "es" ? "Proyecto anterior" : "Previous Project"}
                 </div>
               </span>
               <span className="text-xl font-semibold text-white md:text-2xl">
@@ -208,7 +265,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             >
               <span className="mb-2 block text-sm text-white/40">
                 <div className="inline-flex">
-                  Next Project
+                  {lang === "es" ? "Siguiente proyecto" : "Next Project"}
                   <ArrowRight className="mt-1 ml-2 w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                 </div>
               </span>

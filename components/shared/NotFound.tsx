@@ -1,18 +1,20 @@
 "use client";
 
 import Link from "next/link";
+import { useTranslation } from "react-i18next";
 
 export function NotFoundPage() {
+  const { t } = useTranslation();
+
   return (
     <div className="flex items-center justify-center w-full min-h-dvh bg-[rgb(20,20,20)] px-6 sm:px-10 py-12 sm:py-16">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 max-w-[1000px] items-center w-full">
         <div className="flex flex-col items-start text-left space-y-6">
           <h1 className="text-4xl sm:text-5xl font-bold leading-tight tracking-tight text-white">
-            We can't find that page
+            {t("notFound.title")}
           </h1>
           <p className="text-base text-white/50 leading-relaxed">
-            The page you are looking for might have been removed, renamed, or is
-            temporarily unavailable. Check the URL or return home.
+            {t("notFound.description")}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
@@ -20,13 +22,13 @@ export function NotFoundPage() {
               href="/"
               className="inline-flex items-center justify-center h-12 px-8 rounded-lg bg-white text-[rgb(20,20,20)] font-medium text-sm transition hover:bg-white/90 hover:shadow-lg hover:shadow-white/10"
             >
-              Go Home
+              {t("notFound.goHome")}
             </Link>
             <Link
               href="mailto:manugg24@proton.me"
               className="inline-flex items-center justify-center h-12 px-8 rounded-lg border border-white/10 text-white/70 font-medium text-sm transition duration-300 hover:text-white hover:border-white/20"
             >
-              Contact Support
+              {t("notFound.contactSupport")}
             </Link>
           </div>
         </div>

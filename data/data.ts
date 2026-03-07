@@ -1,17 +1,22 @@
+type LocalizedText = {
+  en: string;
+  es: string;
+};
+
 type Project = {
   id: number;
   slug: string;
   title: string;
-  description: string;
-  longDescription: string;
+  description: LocalizedText;
+  longDescription: LocalizedText;
   tags: string[];
   year: string;
-  role: string;
+  role: LocalizedText;
   links: {
     live?: string;
     github: string;
   };
-  features: string[];
+  features: LocalizedText[];
   techStack: {
     category: string;
     items: string[];
@@ -27,22 +32,45 @@ export const projects: Project[] = [
     id: 1,
     slug: "itinerum",
     title: "Itinerum",
-    description:
-      "Itinerum helps you discover Málaga’s sights and create custom itineraries with saved routes.",
-    longDescription: "",
+    description: {
+      en: "Itinerum helps you discover Málaga’s sights and create custom itineraries with saved routes.",
+      es: "Itinerum te ayuda a descubrir los puntos de interés de Málaga y a crear itinerarios personalizados con rutas guardadas.",
+    },
+    longDescription: {
+      en: "",
+      es: "",
+    },
     tags: ["JS", "Tailwind", "PHP", "MySQL"],
     year: "2025",
-    role: "Desarrollador Full Stack",
+    role: {
+      en: "Full Stack Developer",
+      es: "Desarrollador Full Stack",
+    },
     links: {
       live: "",
       github: "https://github.com/K4sum3i/Itinerum",
     },
     features: [
-      "Search and retrieve points of interest in Málaga",
-      "Generate personalized itineraries based on user preferences",
-      "Store and manage itineraries in a database",
-      "View previously saved itineraries",
-      "Clean, desktop-focused user interface",
+      {
+        en: "Search and retrieve points of interest in Málaga",
+        es: "Buscar y obtener puntos de interés en Málaga",
+      },
+      {
+        en: "Generate personalized itineraries based on user preferences",
+        es: "Generar itinerarios personalizados según las preferencias del usuario",
+      },
+      {
+        en: "Store and manage itineraries in a database",
+        es: "Guardar y gestionar itinerarios en una base de datos",
+      },
+      {
+        en: "View previously saved itineraries",
+        es: "Consultar itinerarios guardados previamente",
+      },
+      {
+        en: "Clean, desktop-focused user interface",
+        es: "Interfaz limpia orientada a escritorio",
+      },
     ],
     techStack: [
       {
@@ -64,22 +92,45 @@ export const projects: Project[] = [
     id: 2,
     slug: "voxhire",
     title: "VoxHire",
-    description:
-      "AI platform for voice-based technical practice and subscription management.",
-    longDescription: "",
+    description: {
+      en: "AI platform for voice-based technical practice and subscription management.",
+      es: "Plataforma de IA para practicar entrevistas técnicas por voz y gestionar suscripciones.",
+    },
+    longDescription: {
+      en: "",
+      es: "",
+    },
     tags: ["Nextjs", "Tailwind", "Clerk", "Stripe", "Prisma", "Supabase"],
     year: "2025",
-    role: "Desarrollador Full Stack",
+    role: {
+      en: "Full Stack Developer",
+      es: "Desarrollador Full Stack",
+    },
     links: {
       live: "",
       github: "https://github.com/K4sum3i/VoxHire",
     },
     features: [
-      "Voice AI Interviews: Job interview simulations with an AI-powered voice assistant.",
-      "Secure Authentication: User login and management with Clerk.",
-      "Subscription Plans: Payment and subscription integration with Stripe.",
-      "Personalized Dashboard: User dashboard to track progress and manage subscriptions.",
-      "Deployment on Vercel: App deployed for free on Vercel.",
+      {
+        en: "Voice AI Interviews: Job interview simulations with an AI-powered voice assistant.",
+        es: "Entrevistas por voz con IA: simulaciones de entrevistas de trabajo con un asistente de voz impulsado por IA.",
+      },
+      {
+        en: "Secure Authentication: User login and management with Clerk.",
+        es: "Autenticación segura: inicio de sesión y gestión de usuarios con Clerk.",
+      },
+      {
+        en: "Subscription Plans: Payment and subscription integration with Stripe.",
+        es: "Planes de suscripción: integración de pagos y suscripciones con Stripe.",
+      },
+      {
+        en: "Personalized Dashboard: User dashboard to track progress and manage subscriptions.",
+        es: "Panel personalizado: panel donde el usuario puede seguir su progreso y gestionar sus suscripciones.",
+      },
+      {
+        en: "Deployment on Vercel: App deployed for free on Vercel.",
+        es: "Despliegue en Vercel: aplicación desplegada en Vercel.",
+      },
     ],
     techStack: [
       {
@@ -108,9 +159,14 @@ export const projects: Project[] = [
     id: 3,
     slug: "krypo",
     title: "Krypo",
-    description:
-      "Modern password manager with a clean interface, user profiles, and analytics to detect insecure patterns.",
-    longDescription: "",
+    description: {
+      en: "Modern password manager with a clean interface, user profiles, and analytics to detect insecure patterns.",
+      es: "Gestor de contraseñas moderno con interfaz limpia, perfiles de usuario y analíticas para detectar patrones inseguros.",
+    },
+    longDescription: {
+      en: "",
+      es: "",
+    },
     tags: [
       "Next.js",
       "Tailwind",
@@ -120,17 +176,35 @@ export const projects: Project[] = [
       "shadcn/ui",
     ],
     year: "2026",
-    role: "Full Stack Developer",
+    role: {
+      en: "Full Stack Developer",
+      es: "Desarrollador Full Stack",
+    },
     links: {
       live: "krypo-rho.vercel.app",
       github: "https://github.com/k4sum3i/krypo",
     },
     features: [
-      "Password Management: Add, edit, and organize passwords per authenticated user.",
-      "Secure Authentication: Login and session management with NextAuth.",
-      "User Profile: View and edit personal profile data.",
-      "Password Analytics: Duplicate password detection and metrics with charts (Recharts) and tables.",
-      "Modern Interface: App Router, shadcn/ui, responsive design, and file uploads with UploadThing.",
+      {
+        en: "Password Management: Add, edit, and organize passwords per authenticated user.",
+        es: "Gestión de contraseñas: añadir, editar y organizar contraseñas por usuario autenticado.",
+      },
+      {
+        en: "Secure Authentication: Login and session management with NextAuth.",
+        es: "Autenticación segura: inicio de sesión y gestión de sesiones con NextAuth.",
+      },
+      {
+        en: "User Profile: View and edit personal profile data.",
+        es: "Perfil de usuario: ver y editar la información del perfil.",
+      },
+      {
+        en: "Password Analytics: Duplicate password detection and metrics with charts (Recharts) and tables.",
+        es: "Analítica de contraseñas: detección de contraseñas duplicadas y métricas con gráficos (Recharts) y tablas.",
+      },
+      {
+        en: "Modern Interface: App Router, shadcn/ui, responsive design, and file uploads with UploadThing.",
+        es: "Interfaz moderna: App Router, shadcn/ui, diseño responsive y subida de archivos con UploadThing.",
+      },
     ],
     techStack: [
       {

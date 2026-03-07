@@ -3,11 +3,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Mail, Github, Linkedin } from "lucide-react";
 import { useEffect, useRef, useState, useMemo } from "react";
+import { useTranslation } from "react-i18next";
 
 const navItems = [
-  { name: "Home", href: "/" },
-  { name: "Projects", href: "/projects" },
-  { name: "Post", href: "/post", disabled: true },
+  { key: "home", href: "/" },
+  { key: "projects", href: "/projects" },
+  { key: "post", href: "/post", disabled: true },
 ];
 
 function FloatingIsland({
@@ -53,6 +54,7 @@ export function NavigationIsland() {
   const pathname = usePathname();
   const linkRefs = useRef<(HTMLElement | null)[]>([]);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const { t } = useTranslation();
 
   const activeIndex = useMemo(
     () =>
@@ -144,13 +146,13 @@ export function NavigationIsland() {
               if (isDisabled) {
                 return (
                   <span
-                    key={item.name}
+                    key={item.key}
                     ref={(el) => {
                       linkRefs.current[idx] = el;
                     }}
                     className="relative z-10 flex items-center justify-center px-5 h-[40px] text-[15px] text-white/30 line-through cursor-not-allowed select-none"
                   >
-                    {item.name}
+                    {t(`nav.${item.key}`)}
                   </span>
                 );
               }
@@ -168,7 +170,7 @@ export function NavigationIsland() {
                     isActive ? "text-white" : "text-white/70 hover:text-white"
                   }`}
                 >
-                  {item.name}
+                  {t(`nav.${item.key}`)}
                 </Link>
               );
             })}

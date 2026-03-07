@@ -1,6 +1,5 @@
 import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-
+import { I18nProvider } from "@/components/i18nProvider";
 import type { Metadata } from "next";
 import { NavigationIsland, MobileNavigation } from "@/components/shared";
 import { Noto_Sans, Noto_Sans_Mono } from "next/font/google";
@@ -17,15 +16,18 @@ const notoMono = Noto_Sans_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://k4sum3i.dev"),
+  metadataBase: new URL("https://k4sum3i.com"),
   title: {
-    default: "K4sum3i",
+    default: "K4sum3i - Web Developer",
     template: "%s — K4sum3i",
   },
   description:
-    "Portfolio de K4sum3i: proyectos, experiencia y tecnologías enfocadas en desarrollo web moderno.",
+    "Portfolio de K4sum3i (Manuel Garcia): proyectos, experiencia y tecnologías enfocadas en desarrollo web moderno.",
   keywords: [
     "portfolio",
+    "desarrollador web",
+    "desarrollador frontend",
+    "desarrollador full stack",
     "web developer",
     "frontend",
     "full stack",
@@ -35,17 +37,21 @@ export const metadata: Metadata = {
     "Tailwind CSS",
   ],
   openGraph: {
-    title: "K4sum3i — Portfolio",
+    title: "K4sum3i — Portfolio de Desarrollo Web",
     description:
-      "Proyectos y experiencia en desarrollo web moderno (Next.js, React, TypeScript, Tailwind).",
+      "Proyectos y experiencia de K4sum3i en desarrollo web moderno (Next.js, React, TypeScript, Tailwind CSS).",
     type: "website",
     url: "/",
   },
   twitter: {
     card: "summary_large_image",
-    title: "K4sum3i — Portfolio",
+    title: "K4sum3i — Portfolio de Desarrollo Web",
     description:
       "Proyectos y experiencia en desarrollo web moderno (Next.js, React, TypeScript, Tailwind).",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -57,9 +63,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${notoSans.variable} ${notoMono.variable} antialiased`}>
-        {children}
+        <I18nProvider> {children}</I18nProvider>
+
         <Analytics />
-        <SpeedInsights />
 
         <div className="hidden md:block">
           <NavigationIsland />

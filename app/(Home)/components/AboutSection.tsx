@@ -1,10 +1,12 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { skills, education } from "@/data/data";
 
 export function AboutSection() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -27,10 +29,10 @@ export function AboutSection() {
           }`}
         >
           <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-tight text-white">
-            Passionate Developer Focused on
+            {t("about.titleLine1")}
             <br />
             <span className="text-[rgb(198,195,242)]">
-              Crafting Exceptional Digital Experiences
+              {t("about.titleLine2")}
             </span>
           </h2>
         </div>
@@ -43,38 +45,32 @@ export function AboutSection() {
             }`}
           >
             <div className="space-y-6 text-lg leading-relaxed text-white/70">
-              <p>
-                I am a Junior Web Developer with a strong focus on building
-                impactful, user-centered web applications. With a commitment to
-                continuous growth, I strive to create digital solutions that
-                blend functionality with seamless user experiences.
-              </p>
-              <p>
-                Although I am early in my professional journey, I have dedicated
-                significant time to mastering modern web technologies through
-                self-directed learning and personal projects. This has allowed
-                me to develop a solid understanding of industry best practices,
-                as well as the technical skills required to deliver
-                high-quality, scalable web solutions.
-              </p>
+              <p>{t("about.paragraph1")}</p>
+              <p>{t("about.paragraph2")}</p>
             </div>
 
             <div className="mt-12 flex gap-12 border-t border-white/10 pt-12">
               <div>
                 <span className="block text-4xl font-bold text-white">3+</span>
-                <span className="text-sm text-white/50">Big Projects</span>
+                <span className="text-sm text-white/50">
+                  {t("about.statsProjects")}
+                </span>
               </div>
               <div>
                 <span className="block text-4xl font-bold text-white">
                   500+
                 </span>
-                <span className="text-sm text-white/50">Hours of Coding</span>
+                <span className="text-sm text-white/50">
+                  {t("about.statsHours")}
+                </span>
               </div>
               <div>
                 <span className="block text-4xl font-bold text-white">
                   100%
                 </span>
-                <span className="text-sm text-white/50">Commitment</span>
+                <span className="text-sm text-white/50">
+                  {t("about.statsCommitment")}
+                </span>
               </div>
             </div>
           </div>
@@ -88,7 +84,7 @@ export function AboutSection() {
               }`}
             >
               <h3 className="mb-6 text-sm tracking-widest text-white/40">
-                TECH STACK
+                {t("about.techStack")}
               </h3>
               <div className="flex flex-wrap gap-3">
                 {skills.map((skill) => (
@@ -110,7 +106,7 @@ export function AboutSection() {
               }`}
             >
               <h3 className="mb-6 text-sm tracking-widest text-white/40">
-                EDUCATION
+                {t("about.education")}
               </h3>
               <div className="space-y-6">
                 {education.map((edu) => (

@@ -5,10 +5,13 @@ import { projects } from "@/data/data";
 import { ArrowRight, ArrowUpRight, FolderCode } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export function ProjectsSection() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language?.startsWith("es") ? "es" : "en";
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -32,15 +35,17 @@ export function ProjectsSection() {
         >
           <div className="flex flex-wrap items-end justify-between gap-6">
             <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-tight text-white">
-              Selected
+              {t("projectsSection.titleLine1")}
               <br />
-              <span className="text-[rgb(198,195,242)]">Projects</span>
+              <span className="text-[rgb(198,195,242)]">
+                {t("projectsSection.titleLine2")}
+              </span>
             </h2>
             <Link
               href="/projects"
               className="group inline-flex items-center gap-2 py-2.5 px-5 rounded-lg text-sm border border-white/5 bg-[rgb(25,25,25)] text-white/80 transition duration-300 hover:border-white/10 hover:text-white"
             >
-              View all projects
+              {t("projectsSection.viewAll")}
               <ArrowUpRight className="h-4 w-4 text-white/15 transition duration-300 group-hover:text-white/80" />
             </Link>
           </div>
@@ -60,7 +65,7 @@ export function ProjectsSection() {
                       <ArrowRight className="h-4 w-4 text-white/15 group-hover:text-white/80 transition-all duration-300" />
                     </div>
                     <p className="max-w-md text-white/50">
-                      {project.description}
+                      {project.description[lang]}
                     </p>
                   </div>
                   <div className="mt-4 flex flex-wrap gap-2">

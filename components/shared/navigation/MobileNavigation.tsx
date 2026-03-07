@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Home, Pencil, Diamond, Mail, Github, Linkedin } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export function MobileNavigation() {
   const [open, setOpen] = useState(false);
@@ -11,11 +12,12 @@ export function MobileNavigation() {
   const startY = useRef<number | null>(null);
 
   const pathname = usePathname();
+  const { t } = useTranslation();
 
   const navItems = [
-    { name: "Home", href: "/", icon: Home },
-    { name: "Projects", href: "/projects", icon: Diamond },
-    { name: "Post", href: "/post", icon: Pencil, disabled: true },
+    { key: "home", href: "/", icon: Home },
+    { key: "projects", href: "/projects", icon: Diamond },
+    { key: "post", href: "/post", icon: Pencil, disabled: true },
   ];
 
   const socials = [
@@ -31,7 +33,8 @@ export function MobileNavigation() {
     (i) =>
       pathname === i.href || (pathname && pathname.startsWith(i.href + "/")),
   );
-  const currentPage = currentNav?.name || "Menu";
+  const currentPage =
+    (currentNav && t(`nav.${currentNav.key}`)) || t("nav.menu");
 
   useEffect(() => {
     if (open) {
@@ -119,12 +122,12 @@ export function MobileNavigation() {
             if (item.disabled) {
               return (
                 <div
-                  key={item.name}
+                  key={item.key}
                   className="flex h-12 items-center justify-between pl-6 pr-3 rounded-lg opacity-50 cursor-not-allowed"
                 >
                   <span className="flex items-center gap-4">
                     <item.icon size={17} />
-                    <s className="font-medium">{item.name}</s>
+                    <s className="font-medium">{t(`nav.${item.key}`)}</s>
                   </span>
                   <div className="mr-[11px] flex h-[calc(100%-22px)] items-center rounded-[7.5px] px-[13px] text-xs border bg-[#171717] border-[#2a2a2a]">
                     ~/post
@@ -134,7 +137,7 @@ export function MobileNavigation() {
             }
             return (
               <Link
-                key={item.name}
+                key={item.key}
                 href={item.href}
                 onClick={() => setOpen(false)}
                 className={`flex h-12 items-center justify-between pl-6 pr-3 rounded-lg ${
@@ -145,7 +148,7 @@ export function MobileNavigation() {
               >
                 <span className="flex items-center gap-4">
                   <item.icon size={17} />
-                  <span className="font-medium">{item.name}</span>
+                  <span className="font-medium">{t(`nav.${item.key}`)}</span>
                 </span>
                 <div
                   className={`mr-[11px] flex h-[calc(100%-22px)] items-center rounded-[7.5px] px-[13px] text-xs border
@@ -155,7 +158,7 @@ export function MobileNavigation() {
                         : "bg-[#141414] border-[#2a2a2a]"
                     }`}
                 >
-                  ~/{item.name.toLowerCase()}
+                  ~/{t(`nav.${item.key}`).toLowerCase()}
                 </div>
               </Link>
             );
