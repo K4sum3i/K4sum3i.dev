@@ -2,7 +2,7 @@
 
 Portfolio personal construido con Next.js (App Router) para mostrar proyectos, stack y experiencia.
 
-- Demo: https://k4sum3i.dev
+- Demo: https://k4sum3i.com
 - Repositorio: https://github.com/K4sum3i/k4sum3i.dev
 
 ## Características
