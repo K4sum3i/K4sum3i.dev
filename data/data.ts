@@ -122,7 +122,7 @@ export const projects: Project[] = [
     year: "2026",
     role: "Full Stack Developer",
     links: {
-      live: "https://krypo-taupe.vercel.app",
+      live: "krypo-rho.vercel.app",
       github: "https://github.com/k4sum3i/krypo",
     },
     features: [
