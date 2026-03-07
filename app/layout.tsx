@@ -1,4 +1,5 @@
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { NavigationIsland, MobileNavigation } from "@/components/shared";
 import { Noto_Sans, Noto_Sans_Mono } from "next/font/google";
@@ -57,6 +58,7 @@ export default function RootLayout({
       <body className={`${notoSans.variable} ${notoMono.variable} antialiased`}>
         {children}
         <Analytics />
+        <SpeedInsights />
 
         <div className="hidden md:block">
           <NavigationIsland />
