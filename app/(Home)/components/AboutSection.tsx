@@ -61,7 +61,7 @@ export function AboutSection() {
 
             <div className="mt-12 flex gap-12 border-t border-white/10 pt-12">
               <div>
-                <span className="block text-4xl font-bold text-white">2+</span>
+                <span className="block text-4xl font-bold text-white">3+</span>
                 <span className="text-sm text-white/50">Big Projects</span>
               </div>
               <div>

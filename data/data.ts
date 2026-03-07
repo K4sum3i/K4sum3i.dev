@@ -104,6 +104,70 @@ export const projects: Project[] = [
       ],
     },
   },
+  {
+    id: 3,
+    slug: "krypo",
+    title: "Krypo",
+    description:
+      "Modern password manager with a clean interface, user profiles, and analytics to detect insecure patterns.",
+    longDescription: "",
+    tags: [
+      "Next.js",
+      "Tailwind",
+      "NextAuth",
+      "Prisma",
+      "Supabase",
+      "shadcn/ui",
+    ],
+    year: "2026",
+    role: "Full Stack Developer",
+    links: {
+      live: "",
+      github: "https://github.com/k4sum3i/krypo",
+    },
+    features: [
+      "Password Management: Add, edit, and organize passwords per authenticated user.",
+      "Secure Authentication: Login and session management with NextAuth.",
+      "User Profile: View and edit personal profile data.",
+      "Password Analytics: Duplicate password detection and metrics with charts (Recharts) and tables.",
+      "Modern Interface: App Router, shadcn/ui, responsive design, and file uploads with UploadThing.",
+    ],
+    techStack: [
+      {
+        category: "Frontend",
+        items: [
+          "Next.js 16",
+          "React 19",
+          "Tailwind CSS",
+          "shadcn/ui",
+          "Radix UI",
+          "Motion",
+        ],
+      },
+      {
+        category: "Backend",
+        items: ["Supabase", "Prisma", "PostgreSQL"],
+      },
+      {
+        category: "Authentication, UI & Data",
+        items: [
+          "NextAuth",
+          "UploadThing",
+          "Recharts",
+          "TanStack React Table",
+          "dnd-kit",
+        ],
+      },
+    ],
+    images: {
+      thumbnail: "/krypo/krypo.webp",
+      gallery: [
+        "/krypo/krypo.webp",
+        "/krypo/krypoLogin.webp",
+        "/krypo/krypoPass.webp",
+      ],
+    },
+  },
 ];
 
 export const skills = [
