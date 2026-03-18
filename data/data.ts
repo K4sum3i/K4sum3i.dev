@@ -181,7 +181,7 @@ export const projects: Project[] = [
       es: "Desarrollador Full Stack",
     },
     links: {
-      live: "krypo-rho.vercel.app",
+      live: "https://krypo-rho.vercel.app",
       github: "https://github.com/k4sum3i/krypo",
     },
     features: [
